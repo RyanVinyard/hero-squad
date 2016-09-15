@@ -13,3 +13,15 @@
 <a href="/squads/:id/heroForm">Add a Hero to this Squad</a><br>
 <a href="/squads/new">Add New Squad</a><br>
 <a href ="/squads">View All Squads</a>
+
+#foreach($hero in $heroes)
+  <ul>
+    <li>Name: $heroName</li>
+    <li>Age: $heroAge</li>
+    <li>Special Power: $heroPower</li>
+    <li>Weakness: $heroWeakness</li>
+    <li>attackPoints: $attackPoints</li>
+    <li>defensePoints: $defensePoints</li>
+    <li>healthPoints: $healthPoints</li>
+  </ul>
+#end

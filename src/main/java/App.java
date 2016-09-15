@@ -62,8 +62,27 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/squads/:id/heroes", (request, response) -> {
+    post("/squads/:id/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-    })
+      model.put("template", "templates/hero.vtl");
+      String heroName = request.queryParams("heroName");
+      Integer heroAge = Integer.parseInt(request.queryParams("heroAge"));
+      String heroPower = request.queryParams("heroPower");
+      String heroWeakness = request.queryParams("heroWeakness");
+      Integer attackPoints = Integer.parseInt(request.queryParams("attackPoints"));
+      Integer defensePoints = Integer.parseInt(request.queryParams("defensePoints"));
+      Integer healthPoints = Integer.parseInt(request.queryParams("healthPoints"));
+      Hero hero = new Hero(heroName, heroAge, heroPower, heroWeakness, attackPoints, defensePoints, healthPoints);
+      Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
+      model.put("heroes", squad.getHeroes());
+      model.put("heroName", heroName);
+      model.put("heroAge", heroAge);
+      model.put("heroPower", heroPower);
+      model.put("heroWeakness", heroWeakness);
+      model.put("attackPoints", attackPoints);
+      model.put("defensePoints", defensePoints);
+      model.put("healthPoints", healthPoints);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }
