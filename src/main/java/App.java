@@ -44,6 +44,8 @@ public class App {
     get("/squads/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
+      String inputtedSquadName = request.queryParams("squadName");
+      request.session("squadName", inputtedSquadName);
       model.put("squadName", squad.getSquadName());
       model.put("squadCause", squad.getSquadCause());
       model.put("squadSize", squad.getMaxSize());
@@ -59,10 +61,11 @@ public class App {
     get("/squads/:id/heroForm", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/hero-create.vtl");
+      model.put("squadName", squad.getSquadName());
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/squads/:id/", (request, response) -> {
+    post("/squads/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/squad.vtl");
       String heroName = request.queryParams("heroName");
