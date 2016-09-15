@@ -8,17 +8,17 @@ public class Hero {
   private String mWeakness;
   private Integer mAttackPoints;
   private Integer mDefensePoints;
-  private Integer mSpeedPoints;
+  private Integer mHealthPoints;
 
 
-  public Hero(String name, int age, String power, String weakness, Integer attackPoints, Integer defensePoints, Integer speedPoints) {
+  public Hero(String name, int age, String power, String weakness, Integer attackPoints, Integer defensePoints, Integer healthPoints) {
     mName = name;
     mAge = age;
     mPower = power;
     mWeakness = weakness;
     mAttackPoints = attackPoints;
     mDefensePoints = defensePoints;
-    mSpeedPoints = speedPoints;
+    mHealthPoints = healthPoints;
   }
 
   public String getName() {
@@ -45,7 +45,7 @@ public class Hero {
     return mDefensePoints;
   }
 
-  public Integer getSpeedPoints() {
-    return mSpeedPoints;
+  public Integer getHealthPoints() {
+    return mHealthPoints;
   }
 }

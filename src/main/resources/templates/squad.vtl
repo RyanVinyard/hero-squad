@@ -1,0 +1,15 @@
+<h1>$squadName</h1>
+
+<h2>Main Objective: $squadCause</h2>
+
+<h3>Max Size: $squadSize Heroes</h3>
+
+<p>$squadName has a total attacking power of $attackPoints, a total defending power of $defensePoints, and $healthPoints total health points</p>
+
+#foreach($hero in $heroes)
+  <h3><a href="/squads/:id/heroes/$hero.getID()">$hero.getName()</a></h3>
+  <p>Attack: $hero.getAttackPoints()  Defense: $hero.getDefensePoints()  Health: $hero.getHealthPoints()</p>
+#end
+<a href="/squads/:id/heroForm">Add a Hero to this Squad</a><br>
+<a href="/squads/new">Add New Squad</a><br>
+<a href ="/squads">View All Squads</a>

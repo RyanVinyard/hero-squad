@@ -46,9 +46,9 @@ public class SquadTest {
   }
 
   @Test
-  public void Squad_returnsSpeedPoints_Integer() {
+  public void Squad_returnsHealthPoints_Integer() {
     Squad mySquad = new Squad("Motherfuckers", 3, "Fucking mothers");
-    assertEquals((Integer)0, mySquad.getSpeedPoints());
+    assertEquals((Integer)0, mySquad.getHealthPoints());
   }
 
   @Test
@@ -87,8 +87,50 @@ public class SquadTest {
   @Test
   public void addHero_addsHeroToSquad_true() {
     Squad goodGuys = new Squad("Motherfuckers", 3, "Fucking mothers");
-    Hero hotRod = new Hero("Hot Rod", 8, "Fire dick", "Dick is literally on fire", 9, 5, 18);
+    Hero hotRod = new Hero("Hot Rod", 8, "Fire head", "head is literally on fire", 9, 5, 18);
     goodGuys.addHero(hotRod);
     assertTrue(goodGuys.getHeroes().contains(hotRod));
+  }
+
+  @Test
+  public void getSquadAttack_returnsTotalSquadAttack_Integer() {
+    Squad goodGuys = new Squad("Motherfuckers", 3, "Fucking mothers");
+    Hero hotRod = new Hero("Hot Rod", 8, "Fire head", "head is literally on fire", 18, 8, 50);
+    Hero hugeDouche = new Hero("Huge Douche", 34, "Verbally berates opponents", "If opponent stops crying and attacks, he can't actually fight", 20, 0, 100);
+    goodGuys.addHero(hotRod);
+    goodGuys.addHero(hugeDouche);
+    assertEquals((Integer)38, goodGuys.getSquadAttack());
+  }
+
+  @Test
+  public void getSquadDefense_returnsTotalSquadDefense_Integer() {
+    Squad goodGuys = new Squad("Motherfuckers", 3, "Fucking mothers");
+    Hero hotRod = new Hero("Hot Rod", 8, "Fire head", "head is literally on fire", 18, 8, 50);
+    Hero hugeDouche = new Hero("Huge Douche", 34, "Verbally berates opponents", "If opponent stops crying and attacks, he can't actually fight", 20, 0, 100);
+    goodGuys.addHero(hotRod);
+    goodGuys.addHero(hugeDouche);
+    assertEquals((Integer)8, goodGuys.getSquadDefense());
+  }
+
+  @Test
+  public void getSquadHealth_returnsTotalSquadHealth_Integer() {
+    Squad goodGuys = new Squad("Motherfuckers", 3, "Fucking mothers");
+    Hero hotRod = new Hero("Hot Rod", 8, "Fire head", "head is literally on fire", 18, 8, 50);
+    Hero hugeDouche = new Hero("Huge Douche", 34, "Verbally berates opponents", "If opponent stops crying and attacks, he can't actually fight", 20, 0, 100);
+    goodGuys.addHero(hotRod);
+    goodGuys.addHero(hugeDouche);
+    assertEquals((Integer)150, goodGuys.getSquadHealth());
+  }
+
+  @Test
+  public void addHero_onlyAddsUntilMaxSize_void() {
+    Squad goodGuys = new Squad("Motherfuckers", 2, "Fucking mothers");
+    Hero hotRod = new Hero("Hot Rod", 8, "Fire head", "head is literally on fire", 18, 8, 50);
+    Hero hugeDouche = new Hero("Huge Douche", 34, "Verbally berates opponents", "If opponent stops crying and attacks, he can't actually fight", 20, 0, 100);
+    Hero spaniard = new Hero("Spaniard", 28, "Really Spanish", "Self conscious and a little too Spanish", 14, 12, 35);
+    goodGuys.addHero(hotRod);
+    goodGuys.addHero(hugeDouche);
+    goodGuys.addHero(spaniard);
+    assertEquals(2, goodGuys.getHeroes().size());
   }
 }

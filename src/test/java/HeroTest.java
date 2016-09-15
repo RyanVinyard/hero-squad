@@ -47,8 +47,8 @@ public class HeroTest {
   }
 
   @Test
-  public void Hero_returnsSpeedPoints_Integer() {
+  public void Hero_returnsHealthPoints_Integer() {
     Hero myHero = new Hero("Hero Guy", 8, "Fire dick", "Dick is literally on fire", 9, 5, 18);
-    assertEquals((Integer)18, myHero.getSpeedPoints());
+    assertEquals((Integer)18, myHero.getHealthPoints());
   }
 }

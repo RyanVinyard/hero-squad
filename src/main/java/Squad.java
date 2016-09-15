@@ -9,7 +9,7 @@ public class Squad {
   private String mSquadCause;
   private Integer mAttackPoints;
   private Integer mDefensePoints;
-  private Integer mSpeedPoints;
+  private Integer mHealthPoints;
   private int mID;
   private List<Hero> mHeroes;
   private static ArrayList<Squad> squads = new ArrayList<Squad>();
@@ -20,7 +20,7 @@ public class Squad {
     mSquadCause = squadCause;
     mAttackPoints = 0;
     mDefensePoints = 0;
-    mSpeedPoints = 0;
+    mHealthPoints = 0;
     squads.add(this);
     mID = squads.size();
     mHeroes = new ArrayList<Hero>();
@@ -46,8 +46,8 @@ public class Squad {
     return mDefensePoints;
   }
 
-  public Integer getSpeedPoints() {
-    return mSpeedPoints;
+  public Integer getHealthPoints() {
+    return mHealthPoints;
   }
 
   public static List<Squad> all() {
@@ -71,6 +71,29 @@ public class Squad {
   }
 
   public void addHero(Hero hero) {
-    mHeroes.add(hero);
+    if (mHeroes.size() < mMaxSize) {
+      mHeroes.add(hero);
+    }
+  }
+
+  public Integer getSquadAttack() {
+    for(Hero hero : mHeroes){
+      mAttackPoints += hero.getAttackPoints();
+    }
+    return mAttackPoints;
+  }
+
+  public Integer getSquadDefense() {
+    for(Hero hero : mHeroes){
+      mDefensePoints += hero.getDefensePoints();
+    }
+    return mDefensePoints;
+  }
+
+  public Integer getSquadHealth() {
+    for(Hero hero : mHeroes){
+      mHealthPoints += hero.getHealthPoints();
+    }
+    return mHealthPoints;
   }
 }

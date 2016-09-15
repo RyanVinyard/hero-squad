@@ -1,0 +1,35 @@
+<h1>Create a hero for $squadName !</h1>
+
+<form action="/squads/:id/heroes" method="post">
+  <div class="form-group">
+    <label for="heroName">Hero's Name<label>
+    <input id="heroName" name="heroName" type="text">
+  </div>
+  <div class="form-group">
+    <label for="heroAge">Hero's age<label>
+    <input id="heroAge" name="heroAge" type="text">
+  </div>
+  <div class="form-group">
+    <label for="heroPower">Hero's special power</label>
+    <input id="heroPower" name="heroPower" type="text">
+  </div>
+  <div class="form-group">
+    <label for="heroWeakness">Hero's weakness</label>
+    <input id="heroWeakness" name="heroWeakness" type="text">
+  </div>
+  <div class="form-group">
+    <label for="attackPoints">Hero's attack points</label>
+    <input id="attackPoints" name="attackPoints" type="text">
+  </div>
+  <div class="form-group">
+    <label for="defensePoints">Hero's defense points</label>
+    <input id="defensePoints" name="defensePoints" type="text">
+  </div>
+  <div class="form-group">
+    <label for="healthPoints">Hero's health points</label>
+    <input id="healthPoints" name="healthPoints" type="text">
+  </div>
+  <button type="submit" class="btn">Create Hero</button>
+</form>
+<a href ="/squads/:id">View This Hero's Squad</a>
+<a href ="/squads">View All Squads</a>
