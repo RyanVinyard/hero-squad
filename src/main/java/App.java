@@ -64,7 +64,7 @@ public class App {
 
     post("/squads/:id/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/hero.vtl");
+      model.put("template", "templates/squad.vtl");
       String heroName = request.queryParams("heroName");
       Integer heroAge = Integer.parseInt(request.queryParams("heroAge"));
       String heroPower = request.queryParams("heroPower");
